@@ -1,0 +1,27 @@
+<%= form_with(model: parameter) do |form| %>
+  <% if parameter.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(parameter.errors.count, "error") %> prohibited this parameter from being saved:</h2>
+
+      <ul>
+        <% parameter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :speed, style: "display: block" %>
+    <%= form.number_field :speed %>
+  </div>
+
+  <div>
+    <%= form.label :distance, style: "display: block" %>
+    <%= form.number_field :distance %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
